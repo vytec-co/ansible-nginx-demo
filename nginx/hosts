@@ -1,0 +1,5 @@
+[webserver]
+ip-172-31-13-241.us-west-2.compute.internal
+
+[local]
+localhost ansible_connection=local
