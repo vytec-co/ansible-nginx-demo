@@ -1,4 +1,7 @@
 ---
+- name: debug
+  debug:
+    msg: "varss:::::: {{ version }}"
 - name: "set the nginx repo"
   apt_repository:
     repo: "ppa:nginx/stable"
