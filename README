@@ -1,4 +1,11 @@
 configuration mgt tools.
 
 ansible agentless 
+ssh communication
+push model
+create 2 ec2 instances.
+  1. ansible manage node
+  2. target node
+Install ansible package in ansible manage node.
+Establish connection from mNode to tNode using ssh-keygen command
 
