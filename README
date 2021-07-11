@@ -8,4 +8,9 @@ create 2 ec2 instances.
   2. target node
 Install ansible package in ansible manage node.
 Establish connection from mNode to tNode using ssh-keygen command
+Enter node hostname in /etc/ansible/hosts file. 
+execute below command to test the connection.
 
+1. ansible -i hosts -m ping
+
+2. ansible-playbook -i hosts nginx.yml
