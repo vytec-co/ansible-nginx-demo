@@ -1,0 +1,4 @@
+#Commands
+packer validate example.json
+packer inspect example.json
+packer build example.json

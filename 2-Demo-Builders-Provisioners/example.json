@@ -1,0 +1,41 @@
+{
+  "variables": {
+    "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+     "region": "us-east-1"
+  },
+  "builders": [{
+    "access_key": "{{user `aws_access_key`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "type": "amazon-ebs",
+    "region": "{{user `region`}}",
+    "source_ami": "ami-14c5486b",
+    "instance_type": "t2.micro",
+    "ssh_username": "ec2-user",
+    "ami_name": "HelloWorldDemo{{timestamp}}"
+  }],
+  "provisioners": [
+        {
+            "type": "file",
+            "source": "./index.html",
+            "destination": "/tmp/"
+        },
+        {
+            "type": "shell",
+            "inline":[
+                "ls -al /tmp",
+                "cat /tmp/index.html"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline":[
+                "sudo yum install httpd -y",
+                "sudo service httpd start",
+                "sudo chkconfig httpd on",
+                "sudo cp /tmp/index.html /var/www/html/index.html",
+                "sudo service httpd restart"
+            ]
+        }
+  ]
+}
