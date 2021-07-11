@@ -7,8 +7,23 @@ create 2 ec2 instances.
   1. ansible manage node
   2. target node
 Install ansible package in ansible manage node.
+
+ubuntu:
+ sudo apt-get install software-properties-common  && \
+  sudo apt-add-repository ppa:ansible/ansible && \
+  sudo apt-get update && \
+ sudo apt-get install ansible
+
+
+Centos7
+
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
+sudo yum install ansible -y
+
 Establish connection from mNode to tNode using ssh-keygen command
+
 Enter node hostname in /etc/ansible/hosts file. 
+
 execute below command to test the connection.
 
 1. ansible -i hosts -m ping
